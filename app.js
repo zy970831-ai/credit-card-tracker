@@ -64,90 +64,134 @@ const ALL_CARDS = [
   { name: "Synchrony Virgin Red Rewards",           issuer: "Synchrony" },
 ];
 
-/* ─── Pre-populated Benefits ───────────────────────────────── */
+/* ─── Pre-populated Benefits (verified May 2026) ───────────── */
 const PRESET_BENEFITS = {
   "AmEx Platinum": [
-    { name: "$200 Airline Fee Credit",        value: 200,   type: "annual",     category: "Travel",         description: "Incidental fees on one selected airline (bag fees, seat upgrades, etc.)" },
-    { name: "$200 Hotel Credit",              value: 200,   type: "annual",     category: "Travel",         description: "Fine Hotels + Resorts or The Hotel Collection (2-night minimum)" },
-    { name: "$240 Digital Entertainment",    value: 20,    type: "monthly",    category: "Entertainment",  description: "Disney+, Hulu, ESPN+, Peacock, NYT, SiriusXM, The Atlantic" },
-    { name: "$155 Walmart+ Credit",           value: 12.95, type: "monthly",    category: "Shopping",       description: "Covers monthly Walmart+ membership fee (~$12.95/mo)" },
-    { name: "$200 Uber Cash",                 value: 15,    type: "monthly",    category: "Transportation", description: "$15/month Uber Cash ($35 in December) for rides or Uber Eats" },
-    { name: "$189 CLEAR Plus Credit",         value: 189,   type: "annual",     category: "Travel",         description: "CLEAR Plus biometric security lanes at airports and stadiums" },
-    { name: "$100 Global Entry / TSA PreCheck", value: 100, type: "annual",     category: "Travel",         description: "Application/renewal fee credit (Global Entry $100, TSA PreCheck $85) — valid every 4.5 years" },
-    { name: "$300 Equinox Credit",            value: 300,   type: "annual",     category: "Fitness",        description: "Equinox gym membership or Equinox+ app" },
+    // Annual fee: $895
+    { name: "$400 Resy Dining Credit",              value: 100,   type: "quarterly",   category: "Dining",         description: "$100/quarter at U.S. Resy-network restaurants; enrollment required" },
+    { name: "$600 Hotel Credit",                    value: 300,   type: "semi-annual", category: "Travel",         description: "$300 Jan–Jun, $300 Jul–Dec; Fine Hotels + Resorts or Hotel Collection via AmexTravel.com (Hotel Collection: 2-night minimum)" },
+    { name: "$300 Digital Entertainment Credit",    value: 25,    type: "monthly",     category: "Entertainment",  description: "$25/month: Disney+, ESPN+, Hulu, NYT, Paramount+, Peacock, WSJ, YouTube Premium/TV; enrollment required" },
+    { name: "$300 lululemon Credit",                value: 75,    type: "quarterly",   category: "Shopping",       description: "$75/quarter at U.S. lululemon retail stores (excluding outlets) and lululemon.com" },
+    { name: "$300 Equinox Credit",                  value: 300,   type: "annual",      category: "Fitness",        description: "Equinox+ digital subscription or physical club membership; enrollment required" },
+    { name: "$200 Uber Cash",                       value: 15,    type: "monthly",     category: "Transportation", description: "$15/month ($20 in December) for U.S. Uber rides and Uber Eats; must add card to Uber app" },
+    { name: "$120 Uber One Credit",                 value: 120,   type: "annual",      category: "Transportation", description: "Auto-renewing Uber One membership; enrollment required" },
+    { name: "$155 Walmart+ Credit",                 value: 12.95, type: "monthly",     category: "Shopping",       description: "Covers one Walmart+ monthly membership fee (~$12.95/mo); auto-renewal required; excludes Plus Upgrades" },
+    { name: "$200 Airline Incidental Fee Credit",   value: 200,   type: "annual",      category: "Travel",         description: "One pre-selected qualifying airline; incidentals only (bag fees, seat upgrades, in-flight food) — NOT ticket purchases" },
+    { name: "$209 CLEAR Plus Credit",               value: 209,   type: "annual",      category: "Travel",         description: "CLEAR+ biometric security lanes at airports and stadiums; enrollment required" },
+    { name: "⚠️ $100 Saks Fifth Avenue Credit",     value: 50,    type: "semi-annual", category: "Shopping",       description: "ENDING July 1, 2026 — Jan–Jun credit must be used by June 30, 2026; Saks.com or in-store" },
+    { name: "$200 Oura Ring Credit (one-time)",     value: 200,   type: "annual",      category: "Shopping",       description: "One-time benefit for Oura Ring hardware purchases at ouraring.com" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4–4.5 years (Global Entry $120, TSA PreCheck $85)" },
   ],
   "AmEx Gold": [
-    { name: "$120 Dining Credit",             value: 10,    type: "monthly",    category: "Dining",         description: "$10/month at Grubhub, The Cheesecake Factory, Goldbelly, Wine.com, Five Guys, Milk Bar" },
-    { name: "$120 Uber Cash",                 value: 10,    type: "monthly",    category: "Transportation", description: "$10/month Uber Cash for Uber Eats or rides" },
-    { name: "$100 Hotel Credit",              value: 100,   type: "annual",     category: "Travel",         description: "The Hotel Collection bookings (2-night minimum)" },
-    { name: "$84 Dunkin' Credit",             value: 7,     type: "monthly",    category: "Dining",         description: "$7/month at Dunkin'" },
+    // Annual fee: $325
+    { name: "$120 Dining Credit",                   value: 10,    type: "monthly",     category: "Dining",         description: "$10/month at Grubhub, Cheesecake Factory, Buffalo Wild Wings, Wonder, Five Guys. Goldbelly & Wine.com end June 30, 2026; enrollment required" },
+    { name: "$120 Uber Cash",                       value: 10,    type: "monthly",     category: "Transportation", description: "$10/month for U.S. Uber rides and Uber Eats; must add card to Uber app" },
+    { name: "$84 Dunkin' Credit",                   value: 7,     type: "monthly",     category: "Dining",         description: "$7/month at U.S. Dunkin' locations and app" },
+    { name: "$100 Resy Credit",                     value: 50,    type: "semi-annual", category: "Dining",         description: "$50 semi-annual (Jan–Jun, Jul–Dec) at U.S. Resy restaurants; enrollment required" },
+    { name: "$100 Hotel Collection Credit (per stay)", value: 100, type: "annual",     category: "Travel",         description: "$100 on-property credit per qualifying stay at The Hotel Collection via AmexTravel.com; 2-night minimum stay required" },
   ],
   "AmEx Business Platinum": [
-    { name: "$400 Dell Technologies Credit",  value: 200,   type: "semi-annual",category: "Shopping",       description: "$200 Jan–Jun, $200 Jul–Dec at Dell Technologies" },
-    { name: "$360 Indeed Credit",             value: 90,    type: "quarterly",  category: "Other",          description: "$90/quarter for Indeed sponsored job postings" },
-    { name: "$150 Adobe Credit",              value: 150,   type: "annual",     category: "Other",          description: "Adobe Creative Cloud or other Adobe solutions" },
-    { name: "$120 Wireless Credit",           value: 10,    type: "monthly",    category: "Other",          description: "$10/month on U.S. wireless phone bills (direct carrier billing)" },
-    { name: "$189 CLEAR Plus Credit",         value: 189,   type: "annual",     category: "Travel",         description: "CLEAR Plus biometric security membership" },
-    { name: "$100 Global Entry / TSA PreCheck", value: 100, type: "annual",     category: "Travel",         description: "Application fee credit every 4.5 years" },
+    // Annual fee: $895
+    { name: "$600 Hotel Credit",                    value: 300,   type: "semi-annual", category: "Travel",         description: "Prepaid Fine Hotels + Resorts or Hotel Collection via AmexTravel.com ($300 Jan–Jun, $300 Jul–Dec); Hotel Collection: 2-night minimum" },
+    { name: "$360 Indeed Credit",                   value: 90,    type: "quarterly",   category: "Other",          description: "$90/quarter for U.S. Indeed sponsored job postings; enrollment required" },
+    { name: "$120 Wireless Credit",                 value: 10,    type: "monthly",     category: "Other",          description: "$10/month on direct purchases from U.S. wireless providers" },
+    { name: "$200 Airline Incidental Fee Credit",   value: 200,   type: "annual",      category: "Travel",         description: "One pre-selected qualifying airline; incidentals only, NOT ticket purchases" },
+    { name: "$200 Hilton for Business Credit",      value: 200,   type: "annual",      category: "Travel",         description: "Eligible purchases at Hilton properties; must be a Hilton for Business member" },
+    { name: "$150 Dell Technologies Credit",        value: 150,   type: "annual",      category: "Shopping",       description: "U.S. purchases directly with Dell; additional $1,000 credit unlocked after $5,000+ Dell spend" },
+    { name: "$250 Adobe Credit",                    value: 250,   type: "annual",      category: "Other",          description: "Earned after spending $600+ on U.S. Adobe purchases in the calendar year" },
+    { name: "$209 CLEAR Plus Credit",               value: 209,   type: "annual",      category: "Travel",         description: "CLEAR+ biometric security membership; enrollment required" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4–4.5 years" },
   ],
   "AmEx Business Gold": [
-    { name: "$240 U.S. Business Credit",      value: 20,    type: "monthly",    category: "Shopping",       description: "$20/month at FedEx, Grubhub, office supply stores, and select U.S. retailers" },
-    { name: "$155 Walmart+ Credit",           value: 12.95, type: "monthly",    category: "Shopping",       description: "Covers monthly Walmart+ membership fee" },
+    // Annual fee: $375
+    { name: "$240 Flexible Business Credit",        value: 20,    type: "monthly",     category: "Shopping",       description: "$20/month at Grubhub and office supply stores; FedEx included through Sept 30, 2026 only; enrollment required" },
+    { name: "$300 ChatGPT Business Credit",         value: 300,   type: "annual",      category: "Other",          description: "U.S. ChatGPT Business subscription purchases; enrollment required" },
+    { name: "$150 Squarespace Credit",              value: 150,   type: "annual",      category: "Other",          description: "U.S. Squarespace purchases; enrollment required" },
+    { name: "$155 Walmart+ Credit",                 value: 12.95, type: "monthly",     category: "Shopping",       description: "Covers one Walmart+ monthly membership fee; auto-renewal required" },
   ],
   "Chase Sapphire Reserve": [
-    { name: "$300 Annual Travel Credit",      value: 300,   type: "annual",     category: "Travel",         description: "Auto-applies to first travel purchases each cardmember year" },
-    { name: "$100 Global Entry / TSA PreCheck", value: 100, type: "annual",     category: "Travel",         description: "Application fee credit every 4 years" },
-    { name: "$60 DoorDash Credit",            value: 5,     type: "monthly",    category: "Dining",         description: "$5/month DoorDash credit (DashPass required)" },
+    // Annual fee: $795
+    { name: "$300 Annual Travel Credit",            value: 300,   type: "annual",      category: "Travel",         description: "Auto-applies to first travel purchases each cardmember year (airlines, hotels, transit, rideshare, etc.)" },
+    { name: "$500 Edit by Chase Hotel Credit",      value: 250,   type: "semi-annual", category: "Travel",         description: "$250 × 2 per cardmember year; qualifying prepaid hotels via The Edit by Chase Travel; 2-night minimum stay" },
+    { name: "$300 Exclusive Tables Dining Credit",  value: 150,   type: "semi-annual", category: "Dining",         description: "$150 semi-annual (Jan–Jun, Jul–Dec) at Sapphire Reserve Exclusive Tables partner restaurants; activation required" },
+    { name: "$300 StubHub / Viagogo Credit",        value: 150,   type: "semi-annual", category: "Entertainment",  description: "$150 semi-annual (Jan–Jun, Jul–Dec) for StubHub and Viagogo ticket purchases; through Dec 31, 2027" },
+    { name: "$120 Peloton Credit",                  value: 10,    type: "monthly",     category: "Fitness",        description: "$10/month toward Peloton memberships; through Dec 31, 2027" },
+    { name: "$120 Lyft Credit",                     value: 10,    type: "monthly",     category: "Transportation", description: "$10/month for Lyft rides; through Sept 30, 2027" },
+    { name: "⚠️ $250 Select Hotel Credit (2026 only)", value: 250, type: "annual",     category: "Travel",         description: "2026-only benefit: IHG, Montage, Pendry, Omni, Virgin Hotels, Minor Hotels, Pan Pacific; prepaid 2-night min via Chase Travel" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
   ],
   "Chase Sapphire Preferred": [
-    { name: "$50 Annual Hotel Credit",        value: 50,    type: "annual",     category: "Travel",         description: "Hotel stays booked through Chase Travel portal" },
+    // Annual fee: $95
+    { name: "$50 Annual Hotel Credit",              value: 50,    type: "annual",      category: "Travel",         description: "Hotel stays booked through Chase Travel portal; resets on cardmember anniversary" },
+    { name: "$120 DoorDash Credit",                 value: 10,    type: "monthly",     category: "Dining",         description: "$10/month for non-restaurant orders (groceries, beauty, etc.) on DoorDash while enrolled in DashPass; through Dec 31, 2027" },
   ],
   "Capital One Venture X": [
-    { name: "$300 Capital One Travel Credit", value: 300,   type: "annual",     category: "Travel",         description: "Bookings through Capital One Travel portal" },
-    { name: "$100 Global Entry / TSA PreCheck", value: 100, type: "annual",     category: "Travel",         description: "Application fee credit every 4 years" },
-    { name: "10,000 Miles Anniversary Bonus", value: 100,   type: "annual",     category: "Travel",         description: "10,000 bonus miles on each card anniversary (worth ~$100 in travel)" },
+    // Annual fee: $395
+    { name: "$300 Capital One Travel Credit",       value: 300,   type: "annual",      category: "Travel",         description: "Bookings through Capital One Travel portal only; expires on account anniversary" },
+    { name: "10,000 Miles Anniversary Bonus",       value: 100,   type: "annual",      category: "Travel",         description: "10,000 bonus miles on each card anniversary (~$100 in travel value)" },
+    { name: "$100 Premier Collection Experience",   value: 100,   type: "annual",      category: "Travel",         description: "$100 on-property activity credit per Premier Collection stay; 1-night minimum" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
   ],
   "Capital One Venture X Business": [
-    { name: "$300 Capital One Travel Credit", value: 300,   type: "annual",     category: "Travel",         description: "Bookings through Capital One Travel portal" },
-    { name: "$100 Global Entry / TSA PreCheck", value: 100, type: "annual",     category: "Travel",         description: "Application fee credit every 4 years" },
-    { name: "10,000 Miles Anniversary Bonus", value: 100,   type: "annual",     category: "Travel",         description: "10,000 bonus miles on card anniversary" },
+    // Annual fee: $395
+    { name: "$300 Business Travel Credit",          value: 300,   type: "annual",      category: "Travel",         description: "Flights, hotels, and rental cars via Capital One Business Travel portal; excludes upgrades, baggage fees, travel insurance" },
+    { name: "10,000 Miles Anniversary Bonus",       value: 100,   type: "annual",      category: "Travel",         description: "10,000 bonus miles on card anniversary (~$100 in travel value)" },
+    { name: "$100 Premier Collection Experience",   value: 100,   type: "annual",      category: "Travel",         description: "$100 on-property activity credit per Premier Collection stay" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
   ],
   "AmEx Hilton Aspire": [
-    { name: "$400 Hilton Resort Credit",      value: 200,   type: "semi-annual",category: "Travel",         description: "$200 Jan–Jun, $200 Jul–Dec at Hilton Resort properties" },
-    { name: "$200 Airline Fee Credit",        value: 100,   type: "semi-annual",category: "Travel",         description: "$100 Jan–Jun, $100 Jul–Dec on selected airline incidental fees" },
-    { name: "$189 CLEAR Plus Credit",         value: 189,   type: "annual",     category: "Travel",         description: "CLEAR Plus biometric security membership" },
-    { name: "$100 Global Entry / TSA PreCheck", value: 100, type: "annual",     category: "Travel",         description: "Application fee credit every 4.5 years" },
+    // Annual fee: $550
+    { name: "$400 Hilton Resort Credit",            value: 200,   type: "semi-annual", category: "Travel",         description: "$200 Jan–Jun, $200 Jul–Dec; eligible purchases at participating Hilton Resort properties directly (NOT all Hilton properties)" },
+    { name: "$200 Airline Credit",                  value: 50,    type: "quarterly",   category: "Travel",         description: "$50/quarter on flights booked directly with airlines or through AmexTravel.com / Amex Travel App" },
+    { name: "$209 CLEAR Plus Credit",               value: 209,   type: "annual",      category: "Travel",         description: "CLEAR+ biometric security membership; enrollment required" },
+    { name: "$100 Waldorf / Conrad Property Credit", value: 100,  type: "annual",      category: "Travel",         description: "$100 on-property credit per qualifying 2-night+ stay at Waldorf Astoria or Conrad; must book at hiltonhonorsaspirecard.com using Aspire Card Benefit rate" },
+    { name: "Annual Free Night Certificate",        value: 150,   type: "annual",      category: "Travel",         description: "One free standard room night at nearly any Hilton property worldwide; issued upon card renewal" },
   ],
   "AmEx Marriott Bonvoy Brilliant": [
-    { name: "$300 Marriott Dining Credit",    value: 25,    type: "monthly",    category: "Dining",         description: "$25/month for dining purchases at Marriott Bonvoy hotels and restaurants" },
-    { name: "$100 Luxury Property Credit",    value: 100,   type: "annual",     category: "Travel",         description: "On-property credit at Ritz-Carlton or St. Regis (2-night+ stay)" },
-    { name: "$189 CLEAR Plus Credit",         value: 189,   type: "annual",     category: "Travel",         description: "CLEAR Plus biometric security membership" },
-    { name: "$100 Global Entry / TSA PreCheck", value: 100, type: "annual",     category: "Travel",         description: "Application fee credit every 4.5 years" },
+    // Annual fee: $650
+    { name: "$300 Global Dining Credit",            value: 25,    type: "monthly",     category: "Dining",         description: "$25/month for restaurant purchases worldwide (broad category); enrollment required" },
+    { name: "$100 Ritz-Carlton / St. Regis Credit", value: 100,   type: "annual",      category: "Travel",         description: "On-property charges (dining, spa) per qualifying 2-night+ stay at Ritz-Carlton or St. Regis; booked directly" },
+    { name: "Annual Free Night Award (up to 85k pts)", value: 200, type: "annual",     category: "Travel",         description: "Free night at participating Marriott properties; can top up with up to 25,000 extra points (110,000 max); issued after card renewal" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4–4.5 years" },
   ],
   "AmEx Marriott Bonvoy Bevy": [
-    { name: "$150 Marriott Bonvoy Credit",    value: 150,   type: "annual",     category: "Travel",         description: "Marriott Bonvoy hotel purchases" },
-    { name: "$84 Dining Bonus Points",        value: 7,     type: "monthly",    category: "Dining",         description: "Bonus Marriott points on dining purchases each month" },
+    // Annual fee: $250 — NO automatic statement credits; benefits are spend-gated
+    { name: "Spend-Based Free Night (up to 50k pts)", value: 100, type: "annual",      category: "Travel",         description: "Earned after $15,000 in calendar year spend; redeemable at Marriott properties at or under 50,000 points; NOT automatic" },
+    { name: "15 Elite Night Credits",               value: 0,     type: "annual",      category: "Travel",         description: "15 elite nights/year toward Marriott Bonvoy status — status accelerator, no direct dollar value" },
   ],
   "Citi AAdvantage Executive": [
-    { name: "Admirals Club Membership",       value: 750,   type: "annual",     category: "Travel",         description: "Full American Airlines Admirals Club lounge access for cardholder + guests" },
-    { name: "$120 TSA PreCheck Credit",       value: 10,    type: "monthly",    category: "Travel",         description: "$10/month toward TSA PreCheck or Global Entry renewal" },
+    // Annual fee: $595 | Admirals Club membership included (non-credit perk)
+    { name: "$120 Grubhub Credit",                  value: 10,    type: "monthly",     category: "Dining",         description: "$10/month for eligible Grubhub purchases; enrollment required" },
+    { name: "$120 Lyft Credit",                     value: 10,    type: "monthly",     category: "Transportation", description: "$10/month; must take 3 eligible Lyft rides in a calendar month to trigger the credit" },
+    { name: "$120 Avis / Budget Rental Credit",     value: 120,   type: "annual",      category: "Travel",         description: "Up to $120/yr; must book directly on Avis.com or Budget.com (not third-party); credit takes 8–10 weeks to post" },
+    { name: "25% In-Flight Savings",                value: 0,     type: "annual",      category: "Travel",         description: "25% back as statement credit on in-flight food & beverage on AA domestic flights; percentage-based, not a fixed credit" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
   ],
   "Citi Strata Elite": [
-    { name: "$300 Air Travel Credit",         value: 300,   type: "annual",     category: "Travel",         description: "Airfare purchases" },
-    { name: "$250 Hotel Credit",              value: 250,   type: "annual",     category: "Travel",         description: "Hotel bookings" },
+    // Annual fee: $595
+    { name: "$300 Annual Hotel Benefit",            value: 300,   type: "annual",      category: "Travel",         description: "Hotel stay of 2+ nights booked through cititravel.com" },
+    { name: "$200 Splurge Credit",                  value: 200,   type: "annual",      category: "Shopping",       description: "Choose up to 2 brands: 1stDibs, American Airlines (some exclusions), Best Buy, Future Personal Training, Live Nation (some exclusions)" },
+    { name: "$200 Blacklane Credit",                value: 100,   type: "semi-annual", category: "Travel",         description: "$100 semi-annual (Jan–Jun, Jul–Dec) for Blacklane premium chauffeur service bookings" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
   ],
   "Chase United Club": [
-    { name: "United Club Membership",         value: 650,   type: "annual",     category: "Travel",         description: "Full United Club lounge membership for cardholder + guests" },
-    { name: "Free Checked Bags",              value: 60,    type: "annual",     category: "Travel",         description: "First 2 bags free for cardholder + 1 companion on United flights" },
+    // Annual fee: $695 | United Club membership included (non-credit perk)
+    { name: "$200 JSX Flight Credit",               value: 200,   type: "annual",      category: "Travel",         description: "Flights booked directly with JSX; resets on card anniversary year" },
+    { name: "$200 Renowned Hotels Credit",          value: 200,   type: "annual",      category: "Travel",         description: "Prepaid hotel stays booked directly through Renowned Hotels and Resorts portal; resets on card anniversary year" },
+    { name: "$150 Rideshare Credit",                value: 12,    type: "monthly",     category: "Transportation", description: "$12/month Jan–Nov, $18 in December for rideshare purchases (e.g. Lyft); requires annual enrollment opt-in" },
+    { name: "$240 Instacart Credit",                value: 20,    type: "monthly",     category: "Shopping",       description: "Two $10 credits/month for purchases made directly through Instacart; through Dec 31, 2027" },
+    { name: "$100 Avis / Budget Credit",            value: 50,    type: "semi-annual", category: "Travel",         description: "Two $50 credits per anniversary year; rentals booked through cars.united.com paid with United Club Card" },
+    { name: "$100 Global Entry / TSA PreCheck",     value: 100,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4–5 years" },
   ],
   "Chase IHG Premier": [
-    { name: "Annual Free Night Certificate",  value: 150,   type: "annual",     category: "Travel",         description: "Free night at IHG properties (up to 40,000 points value) on card anniversary" },
-    { name: "$50 IHG Statement Credit",       value: 50,    type: "annual",     category: "Travel",         description: "Statement credit on IHG Rewards hotel purchases" },
-    { name: "$100 Global Entry / TSA PreCheck", value: 100, type: "annual",     category: "Travel",         description: "Application fee credit" },
+    // Annual fee: $99
+    { name: "Annual Free Night Certificate (40k pts)", value: 150, type: "annual",     category: "Travel",         description: "Free night at participating IHG properties up to 40,000 points; can add more points for higher categories; book and use within 12 months" },
+    { name: "$50 United TravelBank Credit",         value: 25,    type: "semi-annual", category: "Travel",         description: "$25 deposited Jan 1 and Jul 1; must register IHG card with MileagePlus account; credits expire quickly after deposit" },
+    { name: "$100 Global Entry / TSA PreCheck",     value: 100,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
   ],
   "Chase World of Hyatt Business": [
-    { name: "Annual Free Night Certificate",  value: 150,   type: "annual",     category: "Travel",         description: "Category 1–4 Hyatt free night on card anniversary" },
-    { name: "$100 Hyatt Credit",              value: 50,    type: "semi-annual",category: "Travel",         description: "$50 semi-annual credit on Hyatt hotel stays" },
+    // Annual fee: $199
+    { name: "$100 Hyatt Credits",                   value: 50,    type: "semi-annual", category: "Travel",         description: "Two $50 credits per cardmember year; each triggered when you spend $50+ at any Hyatt property" },
   ],
 };
 
