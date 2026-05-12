@@ -174,6 +174,16 @@ const PRESET_BENEFITS = {
     { name: "$200 Blacklane Credit",                value: 100,   type: "semi-annual", category: "Travel",         description: "$100 semi-annual (Jan–Jun, Jul–Dec) for Blacklane premium chauffeur service bookings" },
     { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
   ],
+  "Chase United Quest": [
+    // Annual fee: $250
+    { name: "$200 United Travel Credit",            value: 200,   type: "annual",      category: "Travel",         description: "Awarded after account opening and annually on card anniversary; United purchases only" },
+    { name: "10,000-Mile Award Flight Discount",    value: 100,   type: "annual",      category: "Travel",         description: "10,000-mile discount on award flights starting with first anniversary (~$100 value in miles)" },
+    { name: "$150 Renowned Hotels Credit",          value: 150,   type: "annual",      category: "Travel",         description: "Prepaid accommodations booked through Renowned Hotels and Resorts portal; resets each anniversary year" },
+    { name: "$150 JSX Flight Credit",               value: 150,   type: "annual",      category: "Travel",         description: "Flights booked directly with JSX semi-private service; resets each anniversary year" },
+    { name: "$100 Rideshare Credit",                value: 8,     type: "monthly",     category: "Transportation", description: "$8/month Jan–Nov, $12 in December for rideshare purchases; requires annual opt-in enrollment" },
+    { name: "$180 Instacart Credit",                value: 15,    type: "monthly",     category: "Shopping",       description: "$10 + $5 Instacart credits per month; includes complimentary 3-month Instacart+ then 50% off" },
+    { name: "$80 Avis / Budget Credit",             value: 40,    type: "semi-annual", category: "Travel",         description: "Two $40 credits per anniversary year; rentals booked through cars.united.com paid with United Quest Card" },
+  ],
   "Chase United Club": [
     // Annual fee: $695 | United Club membership included (non-credit perk)
     { name: "$200 JSX Flight Credit",               value: 200,   type: "annual",      category: "Travel",         description: "Flights booked directly with JSX; resets on card anniversary year" },
