@@ -62,10 +62,30 @@ const ALL_CARDS = [
   { name: "US Bank Business Leverage",              issuer: "US Bank" },
   { name: "US Bank Triple Cash Business",           issuer: "US Bank" },
   { name: "Synchrony Virgin Red Rewards",           issuer: "Synchrony" },
+  // Bilt
+  { name: "Bilt Blue",                              issuer: "Bilt" },
+  { name: "Bilt Obsidian",                          issuer: "Bilt" },
+  { name: "Bilt Palladium",                         issuer: "Bilt" },
 ];
 
 /* ─── Pre-populated Benefits (verified May 2026) ───────────── */
 const PRESET_BENEFITS = {
+
+  // ── BILT ────────────────────────────────────────────────────
+  "Bilt Blue": [
+    // Annual fee: $0 — no recurring dollar credits
+  ],
+  "Bilt Obsidian": [
+    // Annual fee: $95
+    { name: "$100 Bilt Travel Hotel Credit",        value: 50,    type: "semi-annual", category: "Travel",         description: "$50 semi-annual for 2-night+ hotel bookings through Bilt Travel portal" },
+  ],
+  "Bilt Palladium": [
+    // Annual fee: $495
+    { name: "$400 Bilt Travel Hotel Credit",        value: 200,   type: "semi-annual", category: "Travel",         description: "$200 semi-annual for 2-night+ hotel bookings through Bilt Travel portal" },
+    { name: "$200 Bilt Cash Credit",                value: 200,   type: "annual",      category: "Other",          description: "Annual recurring $200 Bilt Cash statement credit" },
+  ],
+
+  // ── AMERICAN EXPRESS ─────────────────────────────────────────
   "AmEx Platinum": [
     // Annual fee: $895
     { name: "$400 Resy Dining Credit",              value: 100,   type: "quarterly",   category: "Dining",         description: "$100/quarter at U.S. Resy-network restaurants; enrollment required" },
@@ -203,6 +223,246 @@ const PRESET_BENEFITS = {
     // Annual fee: $199
     { name: "$100 Hyatt Credits",                   value: 50,    type: "semi-annual", category: "Travel",         description: "Two $50 credits per cardmember year; each triggered when you spend $50+ at any Hyatt property" },
   ],
+
+  // ── AMEX PLATINUM VARIANTS ───────────────────────────────────
+  "AmEx Platinum for Morgan Stanley": [
+    // Annual fee: $895 — same core credits as AmEx Platinum, PLUS:
+    { name: "$400 Resy Dining Credit",              value: 100,   type: "quarterly",   category: "Dining",         description: "$100/quarter at U.S. Resy-network restaurants; enrollment required" },
+    { name: "$600 Hotel Credit",                    value: 300,   type: "semi-annual", category: "Travel",         description: "$300 Jan–Jun, $300 Jul–Dec; Fine Hotels + Resorts or Hotel Collection via AmexTravel.com (Hotel Collection: 2-night minimum)" },
+    { name: "$300 Digital Entertainment Credit",    value: 25,    type: "monthly",     category: "Entertainment",  description: "$25/month: Disney+, ESPN+, Hulu, NYT, Paramount+, Peacock, WSJ, YouTube Premium/TV; enrollment required" },
+    { name: "$300 lululemon Credit",                value: 75,    type: "quarterly",   category: "Shopping",       description: "$75/quarter at U.S. lululemon retail stores (excluding outlets) and lululemon.com" },
+    { name: "$300 Equinox Credit",                  value: 300,   type: "annual",      category: "Fitness",        description: "Equinox+ digital subscription or physical club membership; enrollment required" },
+    { name: "$200 Uber Cash",                       value: 15,    type: "monthly",     category: "Transportation", description: "$15/month ($20 in December) for U.S. Uber rides and Uber Eats; must add card to Uber app" },
+    { name: "$120 Uber One Credit",                 value: 120,   type: "annual",      category: "Transportation", description: "Auto-renewing Uber One membership; enrollment required" },
+    { name: "$155 Walmart+ Credit",                 value: 12.95, type: "monthly",     category: "Shopping",       description: "Covers one Walmart+ monthly membership fee; auto-renewal required" },
+    { name: "$200 Airline Incidental Fee Credit",   value: 200,   type: "annual",      category: "Travel",         description: "One pre-selected qualifying airline; incidentals only (bag fees, seat upgrades, in-flight food) — NOT ticket purchases" },
+    { name: "$209 CLEAR Plus Credit",               value: 209,   type: "annual",      category: "Travel",         description: "CLEAR+ biometric security lanes at airports and stadiums; enrollment required" },
+    { name: "⚠️ $100 Saks Fifth Avenue Credit",     value: 50,    type: "semi-annual", category: "Shopping",       description: "ENDING July 1, 2026 — Jan–Jun credit must be used by June 30, 2026; Saks.com or in-store" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4–4.5 years" },
+    { name: "★ $895 MS Engagement Bonus",           value: 895,   type: "annual",      category: "Other",          description: "Morgan Stanley exclusive: deposited into Platinum CashPlus account annually (effectively offsets the annual fee); requires Platinum CashPlus account" },
+    { name: "★ $500 MS Anniversary Spend Award",    value: 500,   type: "annual",      category: "Other",          description: "Morgan Stanley exclusive: deposited into brokerage account after $100,000 in calendar-year card spend" },
+  ],
+  "AmEx Platinum for Schwab": [
+    // Annual fee: $895 — same core credits as AmEx Platinum, PLUS Schwab bonus
+    { name: "$400 Resy Dining Credit",              value: 100,   type: "quarterly",   category: "Dining",         description: "$100/quarter at U.S. Resy-network restaurants; enrollment required" },
+    { name: "$600 Hotel Credit",                    value: 300,   type: "semi-annual", category: "Travel",         description: "$300 Jan–Jun, $300 Jul–Dec; Fine Hotels + Resorts or Hotel Collection via AmexTravel.com (Hotel Collection: 2-night minimum)" },
+    { name: "$300 Digital Entertainment Credit",    value: 25,    type: "monthly",     category: "Entertainment",  description: "$25/month: Disney+, ESPN+, Hulu, NYT, Paramount+, Peacock, WSJ, YouTube Premium/TV; enrollment required" },
+    { name: "$300 lululemon Credit",                value: 75,    type: "quarterly",   category: "Shopping",       description: "$75/quarter at U.S. lululemon retail stores (excluding outlets) and lululemon.com" },
+    { name: "$300 Equinox Credit",                  value: 300,   type: "annual",      category: "Fitness",        description: "Equinox+ digital subscription or physical club membership; enrollment required" },
+    { name: "$200 Uber Cash",                       value: 15,    type: "monthly",     category: "Transportation", description: "$15/month ($20 in December) for U.S. Uber rides and Uber Eats; must add card to Uber app" },
+    { name: "$120 Uber One Credit",                 value: 120,   type: "annual",      category: "Transportation", description: "Auto-renewing Uber One membership; enrollment required" },
+    { name: "$155 Walmart+ Credit",                 value: 12.95, type: "monthly",     category: "Shopping",       description: "Covers one Walmart+ monthly membership fee; auto-renewal required" },
+    { name: "$200 Airline Incidental Fee Credit",   value: 200,   type: "annual",      category: "Travel",         description: "One pre-selected qualifying airline; incidentals only — NOT ticket purchases" },
+    { name: "$209 CLEAR Plus Credit",               value: 209,   type: "annual",      category: "Travel",         description: "CLEAR+ biometric security lanes at airports and stadiums; enrollment required" },
+    { name: "⚠️ $100 Saks Fifth Avenue Credit",     value: 50,    type: "semi-annual", category: "Shopping",       description: "ENDING July 1, 2026 — Jan–Jun credit must be used by June 30, 2026; Saks.com or in-store" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4–4.5 years" },
+    { name: "★ Schwab Appreciation Bonus",          value: 100,   type: "annual",      category: "Other",          description: "Schwab exclusive: $100/yr ($250K–$999K assets), $200/yr ($1M–$9.99M), $1,000/yr ($10M+) in qualifying Schwab holdings — update value to match your tier" },
+  ],
+
+  // ── AMEX OTHER ───────────────────────────────────────────────
+  "AmEx Marriott Bonvoy Business": [
+    // Annual fee: $125
+    { name: "Annual Free Night Award (up to 35k pts)", value: 80, type: "annual",      category: "Travel",         description: "One free night at Marriott properties up to 35,000 points; issued at card renewal" },
+    { name: "Bonus Free Night (spend-gated)",       value: 80,    type: "annual",      category: "Travel",         description: "Additional free night (up to 35,000 pts) after $60,000 in calendar-year spend; NOT automatic" },
+  ],
+  "AmEx Delta SkyMiles Gold Business": [
+    // Annual fee: $150 (waived first year)
+    { name: "$150 Delta Stays Credit",              value: 150,   type: "annual",      category: "Travel",         description: "Prepaid hotels or vacation rentals booked through Delta Stays on delta.com" },
+    { name: "$200 Delta Flight Credit (spend-gated)", value: 200, type: "annual",      category: "Travel",         description: "Earned after $10,000 in calendar-year spend; applied to future Delta travel — NOT automatic" },
+  ],
+
+  // ── CHASE BUSINESS ──────────────────────────────────────────
+  "Chase Sapphire Reserve for Business": [
+    // Annual fee: $795
+    { name: "$300 Annual Travel Credit",            value: 300,   type: "annual",      category: "Travel",         description: "Auto-applies to first travel purchases each cardmember year (flights, hotels, car rentals, cruises, etc.)" },
+    { name: "$500 Edit by Chase Hotel Credit",      value: 250,   type: "semi-annual", category: "Travel",         description: "$250 × 2 per cardmember year; prepaid hotels via The Edit by Chase Travel; 2-night minimum stay" },
+    { name: "$400 ZipRecruiter Credit",             value: 200,   type: "semi-annual", category: "Other",          description: "$200 Jan–Jun, $200 Jul–Dec for direct ZipRecruiter purchases" },
+    { name: "$200 Google Workspace Credit",         value: 200,   type: "annual",      category: "Other",          description: "Direct Google Workspace subscriptions" },
+    { name: "$100 Giftcards.com Credit",            value: 50,    type: "semi-annual", category: "Shopping",       description: "$50 Jan–Jun, $50 Jul–Dec at Giftcards.com curated gift cards" },
+    { name: "$120 Lyft Credit",                     value: 10,    type: "monthly",     category: "Transportation", description: "$10/month for Lyft rides; through Sept 30, 2027" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+  ],
+  "Chase Ink Preferred": [
+    // Annual fee: $95
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+    { name: "$100 Premier Collection Hotel Credit", value: 100,   type: "annual",      category: "Travel",         description: "$100 on-property experience credit per eligible Premier Collection hotel booking via Chase Travel" },
+  ],
+  "Chase Ink Cash": [
+    // Annual fee: $0 — no recurring statement credits
+  ],
+  "Chase Ink Unlimited": [
+    // Annual fee: $0 — no recurring statement credits
+  ],
+  "Chase Ink Premier": [
+    // Annual fee: $195 — cash-back only, no recurring statement credits
+  ],
+
+  // ── CHASE UNITED ────────────────────────────────────────────
+  "Chase United Explorer": [
+    // Annual fee: $150 (waived first year)
+    { name: "$100 United Hotels Credit",            value: 50,    type: "semi-annual", category: "Travel",         description: "Two $50 credits for first two prepaid hotel bookings each anniversary year via United Hotels" },
+    { name: "$100 JSX Flight Credit",               value: 100,   type: "annual",      category: "Travel",         description: "Flights booked directly with JSX semi-private service" },
+    { name: "$60 Rideshare Credit",                 value: 5,     type: "monthly",     category: "Transportation", description: "$5/month for Lyft, Uber, etc.; yearly enrollment required" },
+    { name: "$120 Instacart Credit",                value: 10,    type: "monthly",     category: "Shopping",       description: "$10/month for Instacart purchases; includes 3-month complimentary Instacart+; through Dec 31, 2027" },
+    { name: "$50 Avis / Budget Credit",             value: 25,    type: "semi-annual", category: "Travel",         description: "Two $25 credits per anniversary year; rentals booked through cars.united.com with United Explorer Card" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+  ],
+
+  // ── CHASE AIRLINE ───────────────────────────────────────────
+  "Chase Aeroplan": [
+    // Annual fee: $95
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+  ],
+  "Chase Aer Lingus": [
+    // Annual fee: $95 — no recurring dollar statement credits
+  ],
+  "Chase British Airways": [
+    // Annual fee: $95 — no recurring dollar statement credits (Travel Together Ticket requires $30k spend)
+  ],
+  "Chase Iberia": [
+    // Annual fee: $95 — no recurring dollar statement credits
+  ],
+
+  // ── CHASE SOUTHWEST ─────────────────────────────────────────
+  "Chase Southwest Airlines Performance Business": [
+    // Annual fee: $299
+    { name: "$2,920 Inflight Wi-Fi Credits",        value: 0,     type: "annual",      category: "Travel",         description: "365 credits at $8 each (one per day) for inflight Wi-Fi on Southwest flights; non-dollar value tracked by usage" },
+    { name: "4 Upgraded Boardings",                 value: 60,    type: "annual",      category: "Travel",         description: "4 upgraded boardings per year purchased at the gate and reimbursed as statement credit (~$15 each)" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+  ],
+  "Chase Southwest Airlines Premier Business": [
+    // Annual fee: $149
+    { name: "6,000 Anniversary Points",             value: 72,    type: "annual",      category: "Travel",         description: "6,000 bonus Rapid Rewards points on each card anniversary (~$72 value toward Southwest airfare)" },
+  ],
+
+  // ── CHASE HOTEL ─────────────────────────────────────────────
+  "Chase IHG Traveler": [
+    // Annual fee: $0 — no dollar-denominated statement credits
+  ],
+  "Chase Marriott Bonvoy Boundless": [
+    // Annual fee: $95
+    { name: "Annual Free Night Award (up to 35k pts)", value: 80, type: "annual",      category: "Travel",         description: "One free night at Marriott properties up to 35,000 points; issued on each account anniversary" },
+    { name: "⚠️ $100 Airline Credit (2026 only)",   value: 50,    type: "semi-annual", category: "Travel",         description: "2026-only benefit: $50 after $250+ in airline purchases Jan–Jun 2026, $50 after $250+ Jul–Dec 2026" },
+  ],
+
+  // ── CAPITAL ONE ─────────────────────────────────────────────
+  "Capital One Venture": [
+    // Annual fee: $95
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+    { name: "$50 Lifestyle Collection Hotel Credit", value: 50,   type: "annual",      category: "Travel",         description: "$50 on-property experience credit per qualifying Lifestyle Collection hotel stay booked through Capital One Travel" },
+  ],
+  "Capital One Venture Business": [
+    // Annual fee: $95 (rebranded from Spark Miles, April 2026)
+    { name: "$50 Annual Travel Credit",             value: 50,    type: "annual",      category: "Travel",         description: "Bookings through Capital One Business Travel portal" },
+    { name: "$50 Advertising / Software Credit",    value: 50,    type: "annual",      category: "Other",          description: "Qualifying advertising or software merchant purchases" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+  ],
+  "Capital One VentureOne Business": [
+    // Annual fee: $0 — no recurring statement credits
+  ],
+  "Capital One Spark Cash": [
+    // Annual fee: $0 or $95 — pure cash-back, no recurring statement credits
+  ],
+  "Capital One Spark Cash Plus": [
+    // Annual fee: $150
+    { name: "$150 Annual Cash Bonus (spend-gated)", value: 150,   type: "annual",      category: "Other",          description: "Earned only after $150,000+ in net purchases by account anniversary — NOT automatic" },
+  ],
+  "Capital One Spark Cash Select": [
+    // Annual fee: $0 — no recurring statement credits
+  ],
+
+  // ── CITI ────────────────────────────────────────────────────
+  "Citi Strata Premier": [
+    // Annual fee: $95
+    { name: "$100 Annual Hotel Benefit",            value: 100,   type: "annual",      category: "Travel",         description: "$100 off a single hotel stay of $500+ (excluding taxes/fees) booked through cititravel.com; one use per calendar year" },
+  ],
+  "Citi AAdvantage Platinum Select": [
+    // Annual fee: $99 (waived first year)
+    { name: "$125 AA Flight Discount (spend-gated)", value: 125,  type: "annual",      category: "Travel",         description: "Earned after $20,000 in calendar-year spend and card renewal; discount on American Airlines flights" },
+    { name: "$180 Turo Credit",                     value: 30,    type: "annual",      category: "Travel",         description: "Up to $30/trip for eligible Turo rentals Oct 19, 2025–Oct 18, 2026; max 6 trips = $180/yr" },
+  ],
+  "Citi AAdvantage Globe": [
+    // Annual fee: $350
+    { name: "$100 Annual Inflight Credit",          value: 100,   type: "annual",      category: "Travel",         description: "Purchases on American Airlines flights (food, beverages, Wi-Fi, etc.)" },
+    { name: "$100 Splurge Credit",                  value: 100,   type: "annual",      category: "Shopping",       description: "Choose up to 2 brands: 1stDibs, eligible AAdvantage Hotels, Future Personal Training, or Live Nation" },
+    { name: "$240 Turo Credit",                     value: 30,    type: "annual",      category: "Travel",         description: "Up to $30/trip for eligible Turo rentals; max 8 trips = $240/yr" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+  ],
+  "CitiBusiness AAdvantage Platinum Select": [
+    // Annual fee: $99
+    { name: "$125 AA Flight Discount (spend-gated)", value: 125,  type: "annual",      category: "Travel",         description: "Earned after $20,000 in calendar-year spend and card renewal; discount on American Airlines flights" },
+    { name: "$180 Turo Credit",                     value: 30,    type: "annual",      category: "Travel",         description: "Up to $30/trip for eligible Turo rentals Oct 19, 2025–Oct 18, 2026; max 6 trips = $180/yr" },
+  ],
+
+  // ── BANK OF AMERICA ─────────────────────────────────────────
+  "BoA Alaska Atmos Ascent": [
+    // Annual fee: $95
+    { name: "$100 Alaska Lounge+ Discount",         value: 100,   type: "annual",      category: "Travel",         description: "$100 off an Alaska Lounge+ annual membership ($795/yr); applied as statement credit" },
+  ],
+  "BoA Alaska Atmos Business": [
+    // Annual fee: $70/company + $25/card
+    { name: "$100 Alaska Lounge+ Discount",         value: 100,   type: "annual",      category: "Travel",         description: "$100 off an Alaska Lounge+ annual membership; applied as statement credit" },
+  ],
+  "BoA Alaska Atmos Summit": [
+    // Annual fee: $395
+    { name: "8 Alaska Lounge Passes",               value: 50,    type: "quarterly",   category: "Travel",         description: "2 Alaska Lounge passes per quarter (8/yr); each pass ~$50 value for lounge access" },
+    { name: "8 Inflight Wi-Fi Passes",              value: 30,    type: "quarterly",   category: "Travel",         description: "2 Alaska Airlines inflight Wi-Fi passes per quarter (8/yr); each pass ~$30 value" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+  ],
+  "BoA Premium Rewards": [
+    // Annual fee: $95
+    { name: "$100 Airline Incidental Credit",       value: 100,   type: "annual",      category: "Travel",         description: "Seat upgrades, lounge charges, baggage fees, inflight services on any airline" },
+    { name: "$100 Global Entry / TSA PreCheck",     value: 100,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+  ],
+  "BoA Premium Rewards Elite": [
+    // Annual fee: $550
+    { name: "$300 Airline Incidental Credit",       value: 300,   type: "annual",      category: "Travel",         description: "Seat upgrades, lounge access, baggage fees, inflight services on any airline" },
+    { name: "$150 Lifestyle Credit",                value: 150,   type: "annual",      category: "Other",          description: "Food delivery, streaming services, rideshare, and fitness subscriptions" },
+    { name: "$120 Global Entry / TSA PreCheck",     value: 120,   type: "annual",      category: "Travel",         description: "Application fee reimbursement every 4 years" },
+  ],
+  "BoA Air France KLM": [
+    // Annual fee: $89 — XP bonuses only, no dollar statement credits
+  ],
+
+  // ── BARCLAYS ────────────────────────────────────────────────
+  "Barclays JetBlue Business": [
+    // Annual fee: $99
+    { name: "$100 JetBlue Vacations Credit",        value: 100,   type: "annual",      category: "Travel",         description: "After purchasing a JetBlue Vacations package of $100+; applied as statement credit" },
+  ],
+  "Barclays JetBlue Plus": [
+    // Annual fee: $99
+    { name: "$100 JetBlue Vacations Credit",        value: 100,   type: "annual",      category: "Travel",         description: "After purchasing a JetBlue Vacations package of $100+; applied as statement credit" },
+  ],
+  "Barclays Wyndham Earner Plus": [
+    // Annual fee: $75 — anniversary points only, no dollar credits
+    { name: "7,500 Anniversary Bonus Points",       value: 30,    type: "annual",      category: "Travel",         description: "7,500 bonus Wyndham Rewards points on each card anniversary (~1–2 free nights)" },
+  ],
+
+  // ── WELLS FARGO ─────────────────────────────────────────────
+  "Wells Fargo Premier Autograph": [
+    // Annual fee: $0 (invite-only relationship card)
+    { name: "$50 Annual Airline Credit",            value: 50,    type: "annual",      category: "Travel",         description: "After a $50+ airline purchase; applied as statement credit" },
+  ],
+
+  // ── US BANK ─────────────────────────────────────────────────
+  "US Bank Business Altitude Connect": [
+    // Annual fee: $95 (waived first year)
+    { name: "$100 Software Subscription Credit",    value: 100,   type: "annual",      category: "Other",          description: "Recurring software subscriptions like FreshBooks or QuickBooks" },
+    { name: "$75 Rideshare Credit",                 value: 25,    type: "quarterly",   category: "Transportation", description: "$25/quarter: statement credit after 1+ rideshare purchase per month for 3 consecutive months; up to 3x/year" },
+  ],
+  "US Bank Business Leverage": [
+    // Annual fee: $95 (waived first year) — points-based, no dollar credits
+  ],
+  "US Bank Triple Cash Business": [
+    // Annual fee: $0
+    { name: "$100 Software Subscription Credit",    value: 100,   type: "annual",      category: "Other",          description: "Recurring software subscription expenses (FreshBooks, QuickBooks, etc.)" },
+  ],
+
+  // ── SYNCHRONY ───────────────────────────────────────────────
+  "Synchrony Virgin Red Rewards": [
+    // Annual fee: $99 — points/perks only, no dollar statement credits
+    { name: "5,000 Anniversary Bonus Points",       value: 50,    type: "annual",      category: "Travel",         description: "5,000 Virgin Red points on each card anniversary; posts within 1–2 statement periods after renewal" },
+  ],
 };
 
 /* ─── Issuer Colors ────────────────────────────────────────── */
@@ -216,6 +476,7 @@ const ISSUER_COLORS = {
   "Wells Fargo": "#cd040b",
   "US Bank":     "#0052a5",
   "Synchrony":   "#6c3491",
+  "Bilt":        "#1a1a1a",
 };
 
 function issuerColor(issuer) {
